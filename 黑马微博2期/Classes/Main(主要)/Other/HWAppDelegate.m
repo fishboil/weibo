@@ -9,6 +9,7 @@
 #import "HWAppDelegate.h"
 #import "HWOAuthViewController.h"
 #import "HWAccountTool.h"
+#import "SDWebImageManager.h"
 
 @implementation HWAppDelegate
 
@@ -56,5 +57,15 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)applicationDidReceiveMemoryWarning:(UIApplication *)application
+{
+    SDWebImageManager *mgr = [SDWebImageManager sharedManager];
+    // 1.取消下载
+    [mgr cancelAll];
+    
+    // 2.清除内存中的所有图片
+    [mgr.imageCache clearMemory];
 }
 @end

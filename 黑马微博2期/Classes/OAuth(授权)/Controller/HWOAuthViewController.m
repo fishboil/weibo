@@ -10,6 +10,7 @@
 #import "AFNetworking.h"
 #import "HWAccountTool.h"
 #import "MBProgressHUD+MJ.h"
+#import "MJExtension.h"
 
 @interface HWOAuthViewController () <UIWebViewDelegate>
 
@@ -33,7 +34,7 @@
      client_id	true	string	申请应用时分配的AppKey。
      redirect_uri	true	string	授权回调地址，站外应用需与设置的回调地址一致，站内应用需填写canvas page的地址。
     */
-    NSURL *url = [NSURL URLWithString:@"https://api.weibo.com/oauth2/authorize?client_id=3235932662&redirect_uri=http://www.baidu.com"];
+    NSURL *url = [NSURL URLWithString:@"https://api.weibo.com/oauth2/authorize?client_id=1440633993&redirect_uri=http://www.baidu.com"];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [webView loadRequest:request];
 }
@@ -100,8 +101,8 @@
     
     // 2.拼接请求参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"client_id"] = @"3235932662";
-    params[@"client_secret"] = @"227141af66d895d0dd8baca62f73b700";
+    params[@"client_id"] = @"1440633993";
+    params[@"client_secret"] = @"7dbc342d63a66101075a7d9cab089b98";
     params[@"grant_type"] = @"authorization_code";
     params[@"redirect_uri"] = @"http://www.baidu.com";
     params[@"code"] = code;
